@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./Calclutor.module.scss";
 
+/*
+*TODO
+
+*/
 const initialValue = {
   a: 0,
   b: 0,
@@ -8,8 +12,14 @@ const initialValue = {
 const Calclutor = () => {
   const [value, setValue] = useState({ ...initialValue });
 
+  const handleInputs2 = (e) => {
+    // setValue({ ...initialValue, [e.target.name]: e.target.value });
+    console.log(e.target.value);
+  };
   const handleInputs = (e) => {
-    setValue({ ...initialValue, [e.target.name]: e.target.value });
+    setValue({
+      [e.target.name]: parseInt(e.target.value),
+    });
   };
 
   const clearForm = () => {
@@ -23,14 +33,14 @@ const Calclutor = () => {
           <p>Inputs</p>
           <input
             onChange={handleInputs}
-            type="number"
+            type="text"
             name="a"
             className=" border-black border-2 p-1"
             value={value.a}
           />
 
           <input
-            type="number"
+            type="text"
             name="b"
             id=""
             className="border-2 border-black p-1"
